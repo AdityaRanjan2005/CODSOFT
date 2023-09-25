@@ -1,0 +1,58 @@
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll("button");
+
+let currentInput = "";
+let isOperatorClicked = false;
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        const value = e.target.value;
+
+        if (value === "C") {
+            clearDisplay();
+        } else if (value === "=") {
+            calculateResult();
+        } else if (isOperator(value)) {
+            handleOperator(value);
+        } else {
+            appendInput(value);
+        }
+    });
+});
+
+function isOperator(value) {
+    return ["+", "-", "*", "/"].includes(value);
+}
+
+function clearDisplay() {
+    currentInput = "";
+    isOperatorClicked = false;
+    display.value = "";
+}
+
+function handleOperator(value) {
+    if (!isOperatorClicked) {
+        appendInput(value);
+        isOperatorClicked = true;
+    } else {
+        // Replace the last operator if a new one is clicked
+        currentInput = currentInput.slice(0, -1) + value;
+    }
+}
+
+function appendInput(value) {
+    currentInput += value;
+    display.value = currentInput;
+}
+
+function calculateResult() {
+    try {
+        const result = eval(currentInput);
+        display.value = result;
+        currentInput = result.toString();
+        isOperatorClicked = false;
+    } catch (error) {
+        display.value = "Error";
+        currentInput = "";
+    }
+}
