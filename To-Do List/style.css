@@ -1,7 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-image: url(5293871.jpg);
-    background-size: cover;
+    font-family: 'montserrat', sans-serif;
+    background-image: url(bg.jpg);
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,19 +16,23 @@ body {
     height: 100vh;
 }
 
+
 .container {
-    background-color: #081b29;
+    background-color: #ffff8f;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 1000px;
     text-align: center;
 }
 
+
 h1 {
-    color: yellowgreen;
+    color: black;
+    
     margin-bottom: 20px;
 }
+
 
 .input-container {
     display: flex;
@@ -30,6 +40,7 @@ h1 {
     align-items: center;
     margin-bottom: 20px;
 }
+
 
 input[type="text"] {
     flex: 1;
@@ -41,6 +52,7 @@ input[type="text"] {
     margin-right: 10px;
 }
 
+
 button#addTaskBtn {
     padding: 10px 20px;
     background-color: #3498db;
@@ -51,10 +63,12 @@ button#addTaskBtn {
     font-size: 16px;
 }
 
+
 ul {
     list-style-type: none;
     padding: 0;
 }
+
 
 li {
     display: flex;
@@ -65,7 +79,9 @@ li {
     background-color: #ecf0f1;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #333; 
 }
+
 
 li button.deleteTaskBtn {
     background-color: #e74c3c;
@@ -73,5 +89,32 @@ li button.deleteTaskBtn {
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
+    cursor: pointer;
+}
+
+
+li button.editTaskBtn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+input[type="date"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+
+.deadline-label {
+    font-size: 14px;
+    color: #3498db;
     cursor: pointer;
 }
